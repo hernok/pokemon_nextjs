@@ -1,7 +1,7 @@
-FROM node:16
+# syntax=docker/dockerfile:1
+FROM node:18-alpine
 WORKDIR /app
-COPY package*.json ./
-RUN npm install
 COPY . .
-EXPOSE 3000
-CMD ["node", "server.js"]
+RUN yarn install --production
+CMD ["node", "src/pages/index.js"]
+EXPOSE 3000 

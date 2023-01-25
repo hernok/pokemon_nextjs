@@ -1,6 +1,4 @@
-import { Inter } from '@next/font/google';
 import { useEffect, useState } from 'react';
-import { GetStaticProps } from 'next';
 import Link from 'next/link';
 
 export default function Home({ pokemon }) {
@@ -59,24 +57,24 @@ export default function Home({ pokemon }) {
 										<li key={pokemon.name}>
 											<Link
 												href={`/${pokemon.name}`}
-												className='hover:text-blue-500'
+												className='hover:text-blue-500 h-2 w-full'
 											>
 												{pokemon.name.charAt(0).toUpperCase() +
 													pokemon.name.slice(1)}
 											</Link>{' '}
 											{list.find((item) => pokemon.name === item.name) ? (
 												<span
-													className='favourite-star'
+													className='text-base cursor-pointer'
 													onClick={() => removeFavourite(pokemon.name)}
 												>
 													⭐️
 												</span>
 											) : (
 												<span
-													className='favourite-star'
+													className='text-2xl cursor-pointer text-slate-400'
 													onClick={() => addFavourite(pokemon.name)}
 												>
-													✩
+													★
 												</span>
 											)}
 										</li>
